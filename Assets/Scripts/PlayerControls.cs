@@ -51,9 +51,11 @@ public class PlayerControls : MonoBehaviour
                     audioSource.Stop();
                 }
             }
-
             if (Input.GetKey(KeyCode.Space)){
                 anim.SetInteger("jump", 1);
+                if(audioSource != null && audioSource.isPlaying){
+                    audioSource.Stop();
+                }
                 if (running){
                     moveDir = new Vector3 (0, 2, 1);
                 } else {
